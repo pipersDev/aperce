@@ -1,0 +1,13 @@
+C:\PRUEBAS\APERCE\backend\TaskManagement.Domain\bin\Debug\net10.0\TaskManagement.Domain.deps.json
+C:\PRUEBAS\APERCE\backend\TaskManagement.Domain\bin\Debug\net10.0\TaskManagement.Domain.dll
+C:\PRUEBAS\APERCE\backend\TaskManagement.Domain\bin\Debug\net10.0\TaskManagement.Domain.pdb
+C:\PRUEBAS\APERCE\backend\TaskManagement.Domain\obj\Debug\net10.0\TaskManagement.Domain.csproj.AssemblyReference.cache
+C:\PRUEBAS\APERCE\backend\TaskManagement.Domain\obj\Debug\net10.0\TaskManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\PRUEBAS\APERCE\backend\TaskManagement.Domain\obj\Debug\net10.0\TaskManagement.Domain.AssemblyInfoInputs.cache
+C:\PRUEBAS\APERCE\backend\TaskManagement.Domain\obj\Debug\net10.0\TaskManagement.Domain.AssemblyInfo.cs
+C:\PRUEBAS\APERCE\backend\TaskManagement.Domain\obj\Debug\net10.0\TaskManagement.Domain.csproj.CoreCompileInputs.cache
+C:\PRUEBAS\APERCE\backend\TaskManagement.Domain\obj\Debug\net10.0\TaskManagement.Domain.dll
+C:\PRUEBAS\APERCE\backend\TaskManagement.Domain\obj\Debug\net10.0\refint\TaskManagement.Domain.dll
+C:\PRUEBAS\APERCE\backend\TaskManagement.Domain\obj\Debug\net10.0\TaskManagement.Domain.pdb
+C:\PRUEBAS\APERCE\backend\TaskManagement.Domain\obj\Debug\net10.0\ref\TaskManagement.Domain.dll
+C:\PRUEBAS\APERCE\backend\TaskManagement.Domain\obj\Debug\net10.0\TaskMana.8350F454.Up2Date

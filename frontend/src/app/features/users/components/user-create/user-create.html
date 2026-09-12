@@ -1,0 +1,45 @@
+<div class="container mt-3">
+  <div class="modal-header">
+    <h4 class="modal-title">Crear Nuevo Usuario</h4>
+  </div>
+
+  <div class="modal-body">
+    <form (submit)="onSubmit()">
+      <!-- Nombre -->
+      <div class="mb-3">
+        <label for="name" class="form-label fw-bold">Nombre Completo *</label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          [formField]="userForm.name"
+          placeholder="Ingrese el nombre completo"
+        />
+      </div>
+
+      <!-- Correo Electrónico -->
+      <div class="mb-3">
+        <label for="email" class="form-label fw-bold">Correo Electrónico *</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          [formField]="userForm.email"
+          placeholder="ejemplo@correo.com"
+        />
+      </div>
+
+      <div class="modal-footer mt-5 d-flex justify-content-center">
+        <button type="button" class="btn btn-outline-secondary btn-float" routerLink="/tasks">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-outline-secondary btn-float" routerLink="/users">
+          Listado de Usuarios
+        </button>
+        <button type="submit" class="btn btn-primary" [disabled]="userForm().invalid()">
+          Guardar Usuario
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

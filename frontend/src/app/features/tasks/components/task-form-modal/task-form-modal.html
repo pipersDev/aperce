@@ -1,0 +1,61 @@
+<div class="container mt-5">
+  <div class="modal-header">
+  <h4 class="modal-title">Crear Nueva Tarea</h4>
+</div>
+
+<div class="modal-body">
+  <form (submit)="onSubmit()">
+    <!-- Título -->
+    <div class="mb-3">
+      <label for="title" class="form-label fw-bold">Título *</label>
+      <input 
+        type="text" 
+        id="title" 
+        class="form-control" 
+        [formField]="taskForm.title" 
+        placeholder="Ingrese el título de la tarea" />
+    </div>
+
+    <!-- Descripción -->
+    <div class="mb-3">
+      <label for="description" class="form-label fw-bold">Descripción</label>
+      <textarea 
+        id="description" 
+        class="form-control" 
+        rows="2" 
+        [formField]="taskForm.description"
+        placeholder="Descripción opcional"></textarea>
+    </div>
+
+    <!-- Usuario Asignado -->
+    <div class="mb-3">
+      <label for="userId" class="form-label fw-bold">Asignar a Usuario *</label>
+      <select id="userId" class="form-select" [formField]="$any(taskForm.userId)">
+        <option value="" disabled selected>Seleccione un usuario</option>
+        @for(user of userList(); track user.id) {
+          <option [value]="user.id">
+            {{ user.name }}
+          </option>
+        }
+        <!-- <option *ngFor="let u of users" [value]="u.id">
+          {{ u.name }} ({{ u.email }})
+        </option> -->
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="priority" class="form-label fw-bold">Prioridad</label>
+      <select id="priority" class="form-select" [formField]="taskForm.priority">
+        <option value="0">Pendiente</option>
+        <option value="1">En Progresp</option>
+        <option value="2">Realizada</option>
+      </select>
+    </div>
+
+    <div class="modal-footer mt-5 d-flex justify-content-center">
+      <button type="button" class="btn btn-outline-secondary btn-float" routerLink="/tasks">Cancelar</button>
+      <button type="submit" class="btn btn-outline-primary" [disabled]="taskForm().invalid()">Guardar Tarea</button>
+    </div>
+  </form>
+</div>
+</div>
