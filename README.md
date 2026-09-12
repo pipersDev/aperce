@@ -10,7 +10,8 @@
 ## 🚀 Pasos para ejecutar el proyecto frontend
 1. descargar el proyecto
 2. instalar dependencias con NPM i - install
-3. con el comando npm run start levantas el proyecto en el navegador
+3. Modificar los archivos de enviroments para colocar el puerto donde se levante el proyecto backend
+4. con el comando npm run start levantas el proyecto en el navegador
 
 ## 🚀 Pasos para ejecutar el proyecto backend
 
