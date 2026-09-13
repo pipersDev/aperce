@@ -14,6 +14,13 @@
         class="form-control" 
         [formField]="taskForm.title" 
         placeholder="Ingrese el título de la tarea" />
+        @if (taskForm.title().touched() && taskForm.title().invalid()) {
+            <ul class="error-list">
+            @for (error of taskForm.title().errors(); track error) {
+            <li [innerHTML]="error.message"></li>
+          }
+          </ul>
+        }
     </div>
 
     <!-- Descripción -->
@@ -37,17 +44,21 @@
             {{ user.name }}
           </option>
         }
-        <!-- <option *ngFor="let u of users" [value]="u.id">
-          {{ u.name }} ({{ u.email }})
-        </option> -->
       </select>
+      @if (taskForm.userId().touched() && taskForm.userId().invalid()) {
+        <ul class="error-list">
+          @for (error of taskForm.userId().errors(); track error) {
+            <li [innerHTML]="error.message"></li>
+          }
+        </ul>
+      }
     </div>
 
     <div class="mb-3">
       <label for="priority" class="form-label fw-bold">Prioridad</label>
       <select id="priority" class="form-select" [formField]="taskForm.priority">
         <option value="0">Pendiente</option>
-        <option value="1">En Progresp</option>
+        <option value="1">En Progreso</option>
         <option value="2">Realizada</option>
       </select>
     </div>

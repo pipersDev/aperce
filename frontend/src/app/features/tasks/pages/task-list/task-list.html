@@ -1,13 +1,64 @@
 <div class="container mt-5">
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h2 class="h4 mb-0">Listado de Tareas</h2>
-    <button class="btn btn-primary" routerLink="/tasks/new">
-      + Nueva Tarea
-    </button>
+    <div>
 
-    <button class="btn btn-primary" routerLink="/user/new">
-      + Crear Usuario
-    </button>
+      <button class="btn btn-primary me-2" routerLink="/tasks/new">
+        + Nueva Tarea
+      </button>
+
+      <button class="btn btn-primary" routerLink="/user/new">
+        + Crear Usuario
+      </button>
+    </div>
+  </div>
+
+  <!-- Sección de Filtros -->
+  <div class="row g-3 mb-4 bg-light p-3 rounded border">
+    <div class="col-md-5">
+      <label for="filterUser" class="form-label fw-bold">Filtrar por Usuario</label>
+      <select 
+        id="filterUser" 
+        class="form-select" 
+        [ngModel]="selectedUserId()" 
+        (ngModelChange)="selectedUserId.set($event)">
+        <option value="">Todos los usuarios</option>
+        @for (user of userList(); track user.id) {
+          <option [value]="user.id">{{ user.name }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="col-md-5">
+      <!-- <label for="filterStatus" class="form-label fw-bold">Filtrar por Estado</label>
+      <select 
+        id="filterStatus" 
+        class="form-select" 
+        [ngModel]="selectedStatus()" 
+        (ngModelChange)="selectedStatus.set($event)">
+        <option value="">Todos los estados</option>
+        @for (status of statusOptions; track status) {
+          <option [value]="status">{{ status }}</option>
+        }
+      </select> -->
+
+      <label for="filterStatus" class="form-label fw-bold">Filtrar por Estado</label>
+      <select
+        id="filterStatus" 
+        class="form-select" 
+        [ngModel]="selectedStatus()" 
+        (ngModelChange)="selectedStatus.set($event)">
+        <option value="Pending">Pendiente</option>
+        <option value="InProgress">En Progreso</option>
+        <option value="Done">Realizada</option>
+      </select>
+    </div>
+
+    <div class="col-md-2 d-flex align-items-end">
+      <button class="btn btn-outline-secondary w-100" (click)="clearFilters()">
+        Limpiar
+      </button>
+    </div>
   </div>
 
   <div class="table-responsive">
@@ -23,9 +74,9 @@
         </tr>
       </thead>
       <tbody>
-        @for (task of takList(); track task.createdAt) {
+        @for (task of filteredTasks(); track task.createdAt; let i = $index) {
           <tr>
-            <td>{{ task.id }}</td>
+            <td>{{ i + 1 }}</td>
             <td>{{ task.title }}</td>
             <td>{{ task.description }}</td>
             <td>{{ task.userName }}</td>
@@ -38,17 +89,11 @@
               >
                 Cambiar Estado
               </button>
-              <!-- <button 
-                class="btn btn-sm btn-outline-danger" 
-                (click)="onDeleteTask(task.id)"
-              >
-                Eliminar
-              </button> -->
             </td>
           </tr>
         } @empty {
           <tr>
-            <td colspan="5" class="text-center py-4 text-muted">
+            <td colspan="6" class="text-center py-4 text-muted">
               No hay tareas disponibles.
             </td>
           </tr>

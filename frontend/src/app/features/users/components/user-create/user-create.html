@@ -15,6 +15,13 @@
           [formField]="userForm.name"
           placeholder="Ingrese el nombre completo"
         />
+        @if (userForm.name().touched() && userForm.name().invalid()) {
+            <ul class="error-list">
+            @for (error of userForm.name().errors(); track error) {
+            <li [innerHTML]="error.message"></li>
+          }
+          </ul>
+        }
       </div>
 
       <!-- Correo Electrónico -->
@@ -27,6 +34,13 @@
           [formField]="userForm.email"
           placeholder="ejemplo@correo.com"
         />
+        @if (userForm.email().touched() && userForm.email().invalid()) {
+            <ul class="error-list">
+            @for (error of userForm.email().errors(); track error) {
+            <li [innerHTML]="error.message"></li>
+          }
+          </ul>
+        }
       </div>
 
       <div class="modal-footer mt-5 d-flex justify-content-center">
